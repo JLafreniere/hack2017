@@ -9,13 +9,16 @@ function initMap() {
             lat: 46.555,
             lng: -72.7399493
         },
-        mapTypeId: 'satellite'
+        mapTypeId: 'satellite',
+         styles: [{
+        featureType: 'poi.business',
+        elementType: 'labels',
+        stylers: [{
+            visibility: 'on'
+        }]
+    }]
     });
 
-    heatmap = new google.maps.visualization.HeatmapLayer({
-        data: getPoints(),
-        map: map
-    });
 }
 
 function toggleHeatmap() {

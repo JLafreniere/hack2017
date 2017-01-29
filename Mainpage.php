@@ -15,10 +15,16 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 		<!-- Latest compiled and minified JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-		\<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" type="text/css" href="style.css">
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.7.0/bootstrap-slider.js"></script>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.7.0/css/bootstrap-slider.css" />
 
+
+			<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxF-Wa_6YWDRLneBhqqIqkkNXlwMaKN1I&libraries=visualization,places"></script>-->
+			https://maps.googleapis.com/maps/api/staticmap?key=YOUR_API_KEY&center=-33.874028874704415,151.0724948883056&zoom=13&format=png&maptype=roadmap&size=480x360
+		
+	 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxF-Wa_6YWDRLneBhqqIqkkNXlwMaKN1I&callback=initMap"
+    async defer></script>
 	</head>
 	<body >
 		<div  class="container container-full" style="
@@ -26,6 +32,7 @@
 			margin-left: 0px;
 			">
 			<div class="row">
+			
 				<div class="col-lg-2">
 					
 					<h1 id="TitrePage">What's Up?</h1>
@@ -55,7 +62,8 @@
 						<button type="button" onclick="getData(); " id="btnSoumettre">Soumettre</button>
 					</form>
 				</div>
-				<div class="col-lg-10"><div id="map"></div></div>
+				<div class="col-lg-10"><div id="map"><div id="menuNav"><span>a</span>
+			</div></div></div>
 			</div>
 			<div class="row">
 				<div class="col-lg-12" id="spam">test</div>
@@ -65,9 +73,7 @@
 		
 		<script>
 		</script>
-		<script async defer
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxF-Wa_6YWDRLneBhqqIqkkNXlwMaKN1I&libraries=visualization&callback=initMap">
-		</script>
+
 			<script src="traductions.js"> </script>
 		<script src="heatmap.js"></script>
 	<script type="text/javascript">
@@ -99,6 +105,6 @@
     }
     
 </script>
-		
+
 	</body>
 </html>
