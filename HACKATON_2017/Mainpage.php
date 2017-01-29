@@ -34,30 +34,30 @@
 					
 					<button class="btn btn-info col-sm-10" onclick="changeOpacity()">Changer l'opacité</button>
 					<br>
-
-<div class="form-group"><br>
-  <label for="sel1">Jour</label>
-  <select class="form-control" id="selJour">
-    
-<option value="Dimanche">Dimanche</option>
-    <option value="Lundi">Lundi</option>
-    <option value="Mardi">Mardi</option>
-    <option value="Mercredi">Mercredi</option>
-    <option value="Jeudi">Jeudi</option>
-    <option value="Vendredi">Vendredi</option>
-    <option value="Samedi">Samedi</option>
-  </select>
-</div>
-
-					<input id="sliderHeure" data-slider-id='sliderHeure' type="text" data-slider-min="0" data-slider-max="23" data-slider-step="1" data-slider-value="14"/>
-					<span id="heure"></span>
-
-
+					<form method="post" name="infos_recherche" action="rechercher.php">
+						<div class="form-group"><br>
+							<label for="sel1">Jour</label>
+							<select class="form-control" id="selJour" name="jour">
+								
+								<option value="0">Dimanche</option>
+								<option value="1">Lundi</option>
+								<option value="2">Mardi</option>
+								<option value="3">Mercredi</option>
+								<option value="4">Jeudi</option>
+								<option value="5">Vendredi</option>
+								<option value="6">Samedi</option>
+							</select>
+						</div>
+						<br>
+						<input name="heure" id="sliderHeure" data-slider-id='sliderHeure' type="text" data-slider-min="0" data-slider-max="23" data-slider-step="1" data-slider-value="14"/>
+						<span id="heure"></span>
+						<button type="button" onclick="getData(); " id="btnSoumettre">Soumettre</button>
+					</form>
 				</div>
 				<div class="col-lg-10"><div id="map"></div></div>
 			</div>
 			<div class="row">
-				<div class="col-lg-12">test</div>
+				<div class="col-lg-12" id="spam">test</div>
 			</div>
 		</div>
 		
@@ -68,5 +68,35 @@
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxF-Wa_6YWDRLneBhqqIqkkNXlwMaKN1I&libraries=visualization&callback=initMap">
 		</script>
 		<script src="heatmap.js"></script>
+	<script type="text/javascript">
+
+
+
+    function getData() {
+        $.ajax({
+            type: "POST",
+            url: "rechercher.php",
+            data: {'jour': $("#selJour").val(), 'heure': $("#sliderHeure").text()},
+            success: function (data) {
+                if (data) {
+                    let str = data.split(";");
+                    console.log(str);
+                    str.forEach(function(element) {
+                    	console.log(element);
+    				let infos = element.split(",");
+    				placeBusiness(infos[0],infos[1],infos[2]);
+});
+                    HeatMap();
+
+                }
+            },
+            error: function (req) {
+                alert("erreur");
+            }
+        });
+    }
+    
+</script>
+		
 	</body>
 </html>
