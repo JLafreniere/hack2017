@@ -95,10 +95,3 @@ var sliderHeure = $('#sliderHeure').slider({
 
 $("#selJour").prop('selectedIndex', new Date().getDay());
 
-
-function traduireAnglais(){
-
-  $("#btnSoumettre").html("Submit");
-
-
-}

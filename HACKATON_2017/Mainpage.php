@@ -18,6 +18,7 @@
 		\<link rel="stylesheet" type="text/css" href="style.css">
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.7.0/bootstrap-slider.js"></script>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.7.0/css/bootstrap-slider.css" />
+
 	</head>
 	<body >
 		<div  class="container container-full" style="
@@ -29,23 +30,23 @@
 					
 					<h1 id="TitrePage">What's Up?</h1>
 					
-					<button class="btn btn-info col-sm-10" onclick="toggleHeatmap()">Points chauds</button>
+					<button class="btn btn-info col-sm-10" onclick="toggleHeatmap()" id="btnPointsChauds">Points chauds</button>
 					<br>
 					
-					<button class="btn btn-info col-sm-10" onclick="changeOpacity()">Changer l'opacité</button>
+					<button class="btn btn-info col-sm-10" onclick="changeOpacity()" id="btnChangerOpacite">Changer l'opacité</button>
 					<br>
 					<form method="post" name="infos_recherche" action="rechercher.php">
 						<div class="form-group"><br>
-							<label for="sel1">Jour</label>
+							<label for="sel1" id="btnJour">Jour</label>
 							<select class="form-control" id="selJour" name="jour">
 								
-								<option value="0">Dimanche</option>
-								<option value="1">Lundi</option>
-								<option value="2">Mardi</option>
-								<option value="3">Mercredi</option>
-								<option value="4">Jeudi</option>
-								<option value="5">Vendredi</option>
-								<option value="6">Samedi</option>
+								<option value="0" id="txtDimanche">Dimanche</option>
+								<option value="1" id="txtLundi">Lundi</option>
+								<option value="2" id="txtMardi">Mardi</option>
+								<option value="3" id="txtMercredi">Mercredi</option>
+								<option value="4" id="txtJeudi">Jeudi</option>
+								<option value="5" id="txtVendredi">Vendredi</option>
+								<option value="6" id="txtSamedi">Samedi</option>
 							</select>
 						</div>
 						<br>
@@ -67,6 +68,7 @@
 		<script async defer
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxF-Wa_6YWDRLneBhqqIqkkNXlwMaKN1I&libraries=visualization&callback=initMap">
 		</script>
+			<script src="traductions.js"> </script>
 		<script src="heatmap.js"></script>
 	<script type="text/javascript">
 
